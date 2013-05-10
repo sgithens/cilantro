@@ -28,6 +28,10 @@ define [
 
 
     class Chart extends controls.Control
+        @EXCLUDE_COLOR: "#EE3A43"
+        @INCLUDE_COLOR: "#99BDF1"
+        @PLOT_LINE_WIDTH: 3
+
         template: ->
 
         chartOptions: chartOptions.defaults

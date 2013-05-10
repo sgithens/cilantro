@@ -82,4 +82,43 @@ define(['underscore', 'cilantro/ui/charts', 'cilantro/models', 'text!/mock/conce
            }, 1000);
         });
     });
+    
+    describe("ContextChart", function(){
+        var async = new AsyncSpec(this);
+        var concept = JSON.parse(mocks)[0];
+        var model;
+        var context;
+
+        async.beforeEach(function(done){
+            model = new models.ConceptModel(concept, {parse: true});
+            if (model.fields.length){
+               context = new models.ContextNodeModel({id:model.fields.at(0).id});
+               done();
+            }else{
+               model.fields.once('reset', function() {
+                  context = new models.ContextNodeModel({id:model.fields.at(0).id});
+                  done();
+               });
+            }
+            model.fields.fetch({reset:true});
+        });
+
+        async.it("should update when it's context changes", function(done){
+
+           var testChart = new charts.ContextChart({
+                 model: model.fields.at(0),
+                 context: context
+           });
+
+           var el = testChart.render();
+
+           setTimeout(function(){
+               bands = testChart.chart.xAxis[0].plotLinesAndBands;
+               expect(bands.length).toEqual(0);
+               context.set({value:10,operator:"gt"});
+               expect(bands.length).toEqual(2);
+               done();
+           }, 1000);
+        });
+    });
 });
