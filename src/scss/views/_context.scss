@@ -40,7 +40,7 @@
     }
 
     .context-item {
-        @extend .clearfix;
+        @include clearfix;
 
         margin-bottom: 10px;
         padding-bottom: 10px;
@@ -48,7 +48,6 @@
 
         .language {
             @include transition(color, 0.2s);
-            @extend a;
             cursor: default;
         }
 
