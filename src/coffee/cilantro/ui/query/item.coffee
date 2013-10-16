@@ -16,7 +16,7 @@ define [
         message: 'You have not yet created any queries nor have had any shared with you.'
 
     class QueryItem extends Marionette.ItemView
-        className: 'row-fluid'
+        className: 'row'
 
         template: templates.item
 
