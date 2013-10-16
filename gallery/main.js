@@ -32,7 +32,7 @@ require(['jquery', 'mediator'], function($, mediator) {
         if (navigator.is(':visible')) {
             navigator.detach();
             previewArea.removeClass('preview-ui');
-            previewParent.toggleClass('span8 span12');
+            previewParent.toggleClass('col-md-8 col-md-12');
             navToggle.text('Show Nav');
         }
     }
@@ -41,7 +41,7 @@ require(['jquery', 'mediator'], function($, mediator) {
         if (!navigator.is(':visible')) {
             navigator.prependTo(mainRow);
             previewArea.addClass('preview-ui');
-            previewParent.toggleClass('span8 span12');
+            previewParent.toggleClass('col-md-8 col-md-12');
             navToggle.text('Hide Nav');
         }
     }

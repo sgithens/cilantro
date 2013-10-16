@@ -167,7 +167,7 @@ define [
         showContextPanel: =>
             @areFiltersHidden = false
             @ui.contextContainer.css('display', 'block')
-            @ui.resultsContainer.addClass('span9')
+            @ui.resultsContainer.addClass('col-md-9')
 
             # If we don't update the title by calling fixTitle the tooltip will
             # not respect the attribute change. Also, if we are changing the
@@ -187,7 +187,7 @@ define [
         hideContextPanel: =>
             @areFiltersHidden = true
             @ui.contextContainer.css('display', 'none')
-            @ui.resultsContainer.removeClass('span9')
+            @ui.resultsContainer.removeClass('col-md-9')
 
             # If we don't update the title by calling fixTitle the tooltip will
             # not respect the attribute change. Also, if we are changing the
@@ -233,7 +233,7 @@ define [
             @$('#pages-text-ranges').val('')
 
         changeExportStatus: (title, newState) ->
-            statusContainer = @$(".export-status-#{ title } .span10")
+            statusContainer = @$(".export-status-#{ title } .col-md-10")
 
             statusContainer.children().hide()
 
