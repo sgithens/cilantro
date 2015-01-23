@@ -153,7 +153,13 @@ define([
             _.each(model.links, function(url, name) {
                 if ((Collection = collectionLinkMap[name])) {
                     this.data[name] = new Collection();
-                    this.data[name].url = url;
+                    if (c.config.get('tree')) {
+                        this.data[name].url = url + "?tree=" + c.config.get('tree');
+                    }
+                    else {
+                        this.data[name].url = url;
+                    }
+                    console.log("sgithens Session._parseLinks: " + this.data[name].url);
                     this.data[name].fetch({reset: true});
                 }
             }, this);

@@ -17,6 +17,8 @@ define([
         // The selector of the element views will be rendered within.
         main: '#cilantro-main',
 
+        // Optional modeltree to root the cilantro instance under.
+        tree: null,
 
         /*
          * Sessions
